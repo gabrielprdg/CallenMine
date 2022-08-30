@@ -2,8 +2,10 @@
 # CallenMine
 Essa API tem objetivo de ser um serviço de agendamento que possa ser consumido por diversas aplicações.
 
-## Modelo de Dados
+## Modelo de dados relacional
 ![image](https://user-images.githubusercontent.com/1299063/187514451-ab771e32-aa94-4cbf-85d5-3313da6fa5ea.png)
+
+## Modelo de dados não relacional
 
 ## Contratos
 
