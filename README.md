@@ -3,9 +3,11 @@
 Essa API tem objetivo de ser um serviço de agendamento que possa ser consumido por diversas aplicações.
 
 ## Modelo de dados relacional
-![image](https://user-images.githubusercontent.com/1299063/187514451-ab771e32-aa94-4cbf-85d5-3313da6fa5ea.png)
+![image](https://user-images.githubusercontent.com/1299063/187561828-7a53b4eb-865b-4628-9704-de70435e9713.png)
 
 ## Modelo de dados não relacional
+![image](https://user-images.githubusercontent.com/1299063/187561661-70f01323-1dd8-4fa9-bf61-07da8c183514.png)
+
 
 ## Contratos
 
