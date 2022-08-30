@@ -22,37 +22,37 @@ CREATE TABLE scheduling_block(
   CONSTRAINT scheduling_block_pkey PRIMARY KEY(id)
 );
 
-CREATE TABLE schedulling(
+CREATE TABLE scheduling(
   id integer NOT NULL,
   customer_document varchar NOT NULL,
   note varchar,
-  CONSTRAINT schedulling_pkey PRIMARY KEY(id)
+  CONSTRAINT scheduling_pkey PRIMARY KEY(id)
 );
 
-CREATE TABLE schedulling_date(
+CREATE TABLE scheduling_date(
   id integer NOT NULL,
-  schedulling_id integer NOT NULL,
+  scheduling_id integer NOT NULL,
   date date NOT NULL,
-  CONSTRAINT schedulling_date_pkey PRIMARY KEY(id)
+  CONSTRAINT scheduling_date_pkey PRIMARY KEY(id)
 );
 
 CREATE TABLE scheduling_date_expert(
-schedulling_date_id integer NOT NULL, expert_id integer NOT NULL,
+scheduling_date_id integer NOT NULL, expert_id integer NOT NULL,
   CONSTRAINT scheduling_date_expert_pkey PRIMARY KEY
-    (schedulling_date_id, expert_id)
+    (scheduling_date_id, expert_id)
 );
 
-ALTER TABLE schedulling
-  ADD CONSTRAINT schedulling_customer_document_fkey
+ALTER TABLE scheduling
+  ADD CONSTRAINT scheduling_customer_document_fkey
     FOREIGN KEY (customer_document) REFERENCES customer ("document");
 
-ALTER TABLE schedulling_date
-  ADD CONSTRAINT schedulling_date_schedulling_id_fkey
-    FOREIGN KEY (schedulling_id) REFERENCES schedulling (id);
+ALTER TABLE scheduling_date
+  ADD CONSTRAINT scheduling_date_scheduling_id_fkey
+    FOREIGN KEY (scheduling_id) REFERENCES scheduling (id);
 
 ALTER TABLE scheduling_date_expert
-  ADD CONSTRAINT scheduling_date_expert_schedulling_date_id_fkey
-    FOREIGN KEY (schedulling_date_id) REFERENCES schedulling_date (id);
+  ADD CONSTRAINT scheduling_date_expert_scheduling_date_id_fkey
+    FOREIGN KEY (scheduling_date_id) REFERENCES scheduling_date (id);
 
 ALTER TABLE scheduling_date_expert
   ADD CONSTRAINT scheduling_date_expert_expert_id_fkey
