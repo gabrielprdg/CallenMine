@@ -3,11 +3,9 @@
 Essa API tem objetivo de ser um serviço de agendamento que possa ser consumido por diversas aplicações.
 
 ## Modelo de dados relacional
-![image](https://user-images.githubusercontent.com/1299063/187561828-7a53b4eb-865b-4628-9704-de70435e9713.png)
+![image](https://user-images.githubusercontent.com/1299063/187514451-ab771e32-aa94-4cbf-85d5-3313da6fa5ea.png)
 
 ## Modelo de dados não relacional
-![image](https://user-images.githubusercontent.com/1299063/187561661-70f01323-1dd8-4fa9-bf61-07da8c183514.png)
-
 
 ## Contratos
 
@@ -81,6 +79,9 @@ Cria um bloqueio de agenda recebendo como informações o json seguinte:
 ##### EP.9 - Pega todos os bloqueios na agenda `GET /expert/scheduling/`.
 Retorna uma lista com todos os bloqueios.
 - `Status 200` Retorna um array bloqueios
+
+#### EP.Extra
+- No endpoint 7 usar a API [Abstract API Holidays](https://www.abstractapi.com/api/holidays-api) e se encontrar um feriado na data retornar um 204 com as infomações do feriado. A API tem um tier gratuíto, usar ele.
 
 
 ## Modelo de dados específicos
