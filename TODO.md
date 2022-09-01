@@ -1,3 +1,8 @@
+# O que deve ser entregue
+Deve ser entregue um fork no github com permissão de acesso para o usuário **walmeidaw**.
+Se necessário, deve ter informações sobre como executar o projeto.
+A base de dados usada pode ser MySQL, Mongo, PostgresSQL ou outras, mas deve ser especificado para que possa ser reproduzido na avaliação. Opcionalmente você pode usar uma base de dados na nuvem, o que já elimina esse passo de configuração durante a avaliação.
+
 ## Endpoints esperados
 - [ ] **EP.1** `GET` /customer/{ document }
 - [ ] **EP.2** `GET` /scheduling
@@ -8,3 +13,4 @@
 - [ ] **EP.7** `GET` /expert/free?date={dd-MM-YYYY}
 - [ ] **EP.8** `POST` /blocking/scheduling
 - [ ] **EP.9** `GET` /blocking/scheduling
+- [ ] **EP.Extra** Modificação do *EP.7*
