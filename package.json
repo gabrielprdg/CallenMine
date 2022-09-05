@@ -1,0 +1,32 @@
+{
+  "name": "callenmine",
+  "version": "1.0.0",
+  "description": "Essa API tem objetivo de ser um serviço de agendamento que possa ser consumido por diversas aplicações.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabrielprdg/CallenMine.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gabrielprdg/CallenMine/issues"
+  },
+  "homepage": "https://github.com/gabrielprdg/CallenMine#readme",
+  "devDependencies": {
+    "@types/node": "^18.7.14",
+    "@typescript-eslint/eslint-plugin": "^5.36.1",
+    "eslint": "^8.23.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-config-standard-with-typescript": "^22.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.2.5",
+    "eslint-plugin-promise": "^6.0.1",
+    "git-commit-msg-linter": "^4.1.3",
+    "typescript": "^4.8.2"
+  }
+}
