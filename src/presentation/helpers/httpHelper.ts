@@ -12,9 +12,9 @@ export const notFound = (error: Error): HttpResponse => ({
   body: error
 })
 
-export const timeOut = (error: Error): HttpResponse => ({
+export const timeOut = (): HttpResponse => ({
   statusCode: 408,
-  body: error
+  body: null
 })
 
 // helpers de requisição em caso de sucesso
