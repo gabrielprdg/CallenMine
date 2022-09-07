@@ -4,6 +4,7 @@ export interface HttpRequest {
   method?: any
   headers?: any
   params?: any
+  schedulingId?: any
 }
 
 export interface HttpResponse {

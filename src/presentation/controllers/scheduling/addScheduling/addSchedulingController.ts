@@ -23,7 +23,7 @@ export default class AddSchedulingController implements Controller {
       if (httpRequest.method !== 'POST') {
         return timeOut()
       }
-
+      
       const { customer, note, schedules } = httpRequest.body
       const scheduling = await this.addScheduling.add({ customer, note, schedules })
 
