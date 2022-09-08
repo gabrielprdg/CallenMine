@@ -1,3 +1,4 @@
+import { ServerError } from '../errors/serverError'
 import { HttpResponse } from '../protocols/http'
 
 // helpers de requisição em caso de falhas
@@ -15,6 +16,11 @@ export const notFound = (error: Error): HttpResponse => ({
 export const timeOut = (): HttpResponse => ({
   statusCode: 408,
   body: null
+})
+
+export const serverError = (error: Error): HttpResponse => ({
+  statusCode: 500,
+  body: new ServerError(error.stack)
 })
 
 // helpers de requisição em caso de sucesso

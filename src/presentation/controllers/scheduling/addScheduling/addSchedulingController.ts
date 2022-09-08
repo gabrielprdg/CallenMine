@@ -1,4 +1,4 @@
-import { AddScheduling } from '../../../../domain/useCases/scheduling/addScheduling/addScheduling'
+import { AddScheduling, Schedules } from '../../../../domain/useCases/scheduling/addScheduling/addScheduling'
 import { badRequest, ok, timeOut } from '../../../helpers/httpHelper'
 import { Controller } from '../../../protocols/controller'
 import { HttpRequest, HttpResponse } from '../../../protocols/http'
@@ -20,11 +20,8 @@ export default class AddSchedulingController implements Controller {
         return badRequest(error)
       }
 
-      if (httpRequest.method !== 'POST') {
-        return timeOut()
-      }
-
       const { customer, note, schedules } = httpRequest.body
+
       const scheduling = await this.addScheduling.add({ customer, note, schedules })
 
       return ok(scheduling)

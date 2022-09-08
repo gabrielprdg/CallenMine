@@ -1,6 +1,6 @@
 import { SchedulingModel } from '../../../../domain/models/scheduling'
-import { AddSchedulingParams } from '../../../../domain/useCases/scheduling/addScheduling/addScheduling'
+import { AddSchedulingParams, SchedulingId } from '../../../../domain/useCases/scheduling/addScheduling/addScheduling'
 
 export interface AddSchedulingRepository {
-  add: (scheduleData: AddSchedulingParams) => Promise<SchedulingModel>
+  add: (scheduleData: AddSchedulingParams) => Promise<SchedulingId>
 }

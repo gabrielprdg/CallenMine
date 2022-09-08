@@ -34,7 +34,6 @@ describe('Scheduling Mongo Respository', () => {
         note: 'any_note',
         schedules: [{
           scheduling_id: 'any_id',
-          date: new Date(),
           experts: [{
             id: 'any_id',
             name: 'any_name'

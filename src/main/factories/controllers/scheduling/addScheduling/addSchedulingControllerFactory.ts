@@ -1,6 +1,6 @@
 import AddSchedulingController from '../../../../../presentation/controllers/scheduling/addScheduling/addSchedulingController'
 import { Controller } from '../../../../../presentation/protocols/controller'
-import { makeDbAddScheduling } from '../../../useCases/addScheduling/dbAddSchedulingFactory'
+import { makeDbAddScheduling } from '../../../useCases/scheduling/addScheduling/dbAddSchedulingFactory'
 import { makeAddSchedulingValidation } from './addSchedulingValidationFactory'
 
 // factory é basicamente um pattern de desenvolvimento que serve para fornecer

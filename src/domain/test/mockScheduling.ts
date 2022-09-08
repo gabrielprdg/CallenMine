@@ -29,7 +29,6 @@ export const mockAddSchedulingParams = (): AddSchedulingParams => ({
   note: 'any_id',
   schedules: [{
     scheduling_id: 'any_id',
-    date: new Date(),
     experts: [{
       id: 'any_id',
       name: 'any_name'

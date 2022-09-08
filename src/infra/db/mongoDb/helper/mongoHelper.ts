@@ -1,4 +1,4 @@
-import { Collection, MongoClient } from 'mongodb'
+import { Collection, MongoClient, ObjectId } from 'mongodb'
 
 export const mongoHelper = {
   client: null as unknown as MongoClient,
@@ -17,6 +17,11 @@ export const mongoHelper = {
     // isConnected -> metodo que verifica se o client esta conectado ou nao
    
     return this.client.db().collection(name)
+  },
+
+  mapId: (ObId: ObjectId): any => {
+    const convertId = {id: ObId}
+    return convertId
   },
 
   map: (data: any): any => {

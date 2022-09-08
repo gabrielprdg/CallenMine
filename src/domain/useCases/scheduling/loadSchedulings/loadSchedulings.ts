@@ -1,5 +1,5 @@
-import { SchedulesModel } from '../../../models/schedules'
+import { SchedulingModel } from '../../../models/scheduling'
 
 export interface LoadSchedulings {
-  loadSchedulings: () => Promise<SchedulesModel[]>
+  load: () => Promise<SchedulingModel[]>
 }
