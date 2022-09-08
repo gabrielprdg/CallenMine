@@ -1,5 +1,5 @@
 import { SchedulingModel } from '../../../../domain/models/scheduling'
-import { AddScheduling, AddSchedulingParams } from '../../../../domain/useCases/scheduling/addScheduling/AddScheduling'
+import { AddScheduling, AddSchedulingParams } from '../../../../domain/useCases/scheduling/addScheduling/addScheduling'
 import { AddSchedulingRepository } from '../../../protocols/db/scheduling/addSchedulingRepository'
 
 export class DbAddScheduling implements AddScheduling {

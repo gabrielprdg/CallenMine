@@ -1,6 +1,6 @@
 import { AddSchedulingRepository } from '../../../../data/protocols/db/scheduling/addSchedulingRepository'
 import { SchedulingModel } from '../../../../domain/models/scheduling'
-import { AddSchedulingParams } from '../../../../domain/useCases/scheduling/addScheduling/AddScheduling'
+import { AddSchedulingParams } from '../../../../domain/useCases/scheduling/addScheduling/addScheduling'
 import { mongoHelper } from '../helper/mongoHelper'
 
 export class SchedulingMongoRepository implements AddSchedulingRepository {

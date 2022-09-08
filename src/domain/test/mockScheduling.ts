@@ -1,5 +1,5 @@
 import { SchedulingModel } from '../models/scheduling'
-import { AddSchedulingParams } from '../useCases/scheduling/addScheduling/AddScheduling'
+import { AddSchedulingParams } from '../useCases/scheduling/addScheduling/addScheduling'
 
 export const mockSchedulingModel = (): SchedulingModel => {
   return {

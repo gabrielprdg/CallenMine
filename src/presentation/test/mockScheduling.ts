@@ -1,6 +1,6 @@
 import { SchedulingModel } from '../../domain/models/scheduling'
 import { mockSchedulingModel } from '../../domain/test/mockScheduling'
-import { AddScheduling, AddSchedulingParams } from '../../domain/useCases/scheduling/addScheduling/AddScheduling'
+import { AddScheduling, AddSchedulingParams } from '../../domain/useCases/scheduling/addScheduling/addScheduling'
 
 export const mockAddScheduling = (): AddScheduling => {
   class AddSchedulingStub implements AddScheduling {

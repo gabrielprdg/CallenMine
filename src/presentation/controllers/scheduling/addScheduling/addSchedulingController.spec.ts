@@ -1,4 +1,4 @@
-import { AddScheduling } from '../../../../domain/useCases/scheduling/addScheduling/AddScheduling'
+import { AddScheduling } from '../../../../domain/useCases/scheduling/addScheduling/addScheduling'
 import { badRequest } from '../../../helpers/httpHelper'
 import { HttpRequest } from '../../../protocols/http'
 import { Validation } from '../../../protocols/validation'
