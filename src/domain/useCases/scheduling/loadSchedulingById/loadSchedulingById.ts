@@ -1,5 +1,5 @@
 import { SchedulingModel } from '../../../models/scheduling'
 
 export interface LoadSchedulingById {
-  loadSchedulingById: (id: string) => Promise<SchedulingModel>
+  loadById: (id: string) => Promise<SchedulingModel>
 }
