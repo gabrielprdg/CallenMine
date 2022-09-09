@@ -1,12 +1,13 @@
 import { ObjectId } from 'mongodb'
 import { AddSchedulingRepository } from '../../../../data/protocols/db/scheduling/addSchedulingRepository'
+import { LoadSchedulingByExpertIdRepository } from '../../../../data/protocols/db/scheduling/loadSchedulingByExertIdRepository'
 import { LoadSchedulingByIdRepository } from '../../../../data/protocols/db/scheduling/loadSchedulingByIdRepository'
 import { LoadSchedulingsRepository } from '../../../../data/protocols/db/scheduling/loadSchedulingsRepository'
 import { SchedulingModel } from '../../../../domain/models/scheduling'
 import { AddSchedulingParams, SchedulingId } from '../../../../domain/useCases/scheduling/addScheduling/addScheduling'
 import { mongoHelper } from '../helper/mongoHelper'
 
-export class SchedulingMongoRepository implements AddSchedulingRepository, LoadSchedulingsRepository, LoadSchedulingByIdRepository {
+export class SchedulingMongoRepository implements AddSchedulingRepository, LoadSchedulingsRepository, LoadSchedulingByIdRepository, LoadSchedulingByExpertIdRepository {
   async add (schedulingData: AddSchedulingParams): Promise<SchedulingId> {
     const schedulingCollection = await mongoHelper.getCollection('scheduling')
     const result = await schedulingCollection.insertOne(schedulingData)
@@ -24,6 +25,12 @@ export class SchedulingMongoRepository implements AddSchedulingRepository, LoadS
     const schedulingCollection = await mongoHelper.getCollection('scheduling')
     const scheduling = await schedulingCollection.findOne({ _id: new ObjectId(id)})
     return scheduling && mongoHelper.map(scheduling)
+  }
+
+  async loadByExpertId (expertId: string): Promise<SchedulingModel[]> {
+    const schedulingCollection = await mongoHelper.getCollection('scheduling')
+    const schedulings = await schedulingCollection.find({ 'schedules.experts.id': expertId }).toArray()
+    return mongoHelper.mapCollection(schedulings)
   }
 }
 

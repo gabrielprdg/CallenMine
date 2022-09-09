@@ -17,7 +17,7 @@ export const adapRoute = (controller: Controller): RequestHandler => {
       schedulingId: request.schedulingId
     }
 
-    console.log(httpRequest.method)
+    console.log(httpRequest.params)
 
     const httpResponse = await controller.handle(httpRequest)
     console.log(httpResponse)

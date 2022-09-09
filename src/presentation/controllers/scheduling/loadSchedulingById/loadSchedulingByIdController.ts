@@ -7,24 +7,17 @@ import { HttpRequest, HttpResponse } from '../../../protocols/http'
 import { Validation } from '../../../protocols/validation'
 
 export default class LoadSchedulingByIdController implements Controller {
-  private readonly validation: Validation
   private readonly loadSchedulingById: LoadSchedulingById
 
-  constructor (validation: Validation, loadSchedulingById: LoadSchedulingById) {
-    this.validation = validation
+  constructor (loadSchedulingById: LoadSchedulingById) {
     this.loadSchedulingById = loadSchedulingById
   }
 
   async handle (httpRequest: HttpRequest): Promise<HttpResponse> {
     try {
-      const error = this.validation.validate(httpRequest.body)
-      if (error != null) {
-        return badRequest(error)
-      }
+      const { scheduling_id } = httpRequest.params
 
-      const { id } = httpRequest.params
-
-      const scheduling = await this.loadSchedulingById.loadById(id)
+      const scheduling = await this.loadSchedulingById.loadById(scheduling_id)
 
       if (scheduling) {
         return ok(scheduling)

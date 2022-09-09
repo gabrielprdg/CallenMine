@@ -28,7 +28,7 @@ describe('Scheduling Mongo Respository', () => {
       const sut = makeSut()
       await sut.add({
         customer: {
-          id: 'any_id',
+          document: 'any_id',
           name: 'any_name'
         },
         note: 'any_note',
