@@ -2,13 +2,13 @@ import { AddCustomer, AddCustomerParams, CustomerId } from '../../../../domain/u
 import { AddCustomerRepository } from '../../../protocols/db/customer/addCustomerRepository'
 
 export class DbAddCustomer implements AddCustomer {
-  private readonly addcustomerRepository: AddCustomerRepository
+  private readonly addCustomerRepository: AddCustomerRepository
   constructor (addCustomerRepository: AddCustomerRepository) {
-    this.addcustomerRepository = addCustomerRepository
+    this.addCustomerRepository = addCustomerRepository
   }
 
   async add (data: AddCustomerParams): Promise<CustomerId> {
-    const customerId = await this.addcustomerRepository.add(data)
+    const customerId = await this.addCustomerRepository.add(data)
     return customerId
   }
 }

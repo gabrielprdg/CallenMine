@@ -5,5 +5,5 @@ export type DatesOccupied = {
 }
 
 export interface LoadDatesOccupied {
-  loadDatesByExpertId: (id: string) => Promise<DatesOccupied[]> 
+  loadDates: (id: string) => Promise<DatesOccupied[]> 
 }

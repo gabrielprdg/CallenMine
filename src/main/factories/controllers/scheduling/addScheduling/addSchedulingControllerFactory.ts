@@ -1,5 +1,6 @@
 import AddSchedulingController from '../../../../../presentation/controllers/scheduling/addScheduling/addSchedulingController'
 import { Controller } from '../../../../../presentation/protocols/controller'
+import { makeDbAddSchedules } from '../../../useCases/schedules/addSchedules/dbAddSchedulesFactory'
 import { makeDbAddScheduling } from '../../../useCases/scheduling/addScheduling/dbAddSchedulingFactory'
 import { makeAddSchedulingValidation } from './addSchedulingValidationFactory'
 
@@ -7,6 +8,6 @@ import { makeAddSchedulingValidation } from './addSchedulingValidationFactory'
 // a possibilidade de criarmos uma fabrica para criação dos nossos objetos em tempo de execução
 
 export const makeAddSchedulingController = (): Controller => {
-  const controller = new AddSchedulingController(makeAddSchedulingValidation(), makeDbAddScheduling())
+  const controller = new AddSchedulingController(makeAddSchedulingValidation(), makeDbAddScheduling(), makeDbAddSchedules())
   return controller
 }

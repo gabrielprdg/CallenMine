@@ -5,6 +5,7 @@ export interface HttpRequest {
   headers?: any
   params?: any
   schedulingId?: any
+  query?: any
 }
 
 export interface HttpResponse {

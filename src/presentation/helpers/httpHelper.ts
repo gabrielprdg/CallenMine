@@ -30,7 +30,8 @@ export const ok = (data: any): HttpResponse => ({
   body: data
 })
 
-export const noContent = (): HttpResponse => ({
+// normalmente esse statusCode nao tem retorno porém é especificado que tenha o retorno no EP7
+export const noContent = (data): HttpResponse => ({
   statusCode: 200,
-  body: null
+  body: data
 })

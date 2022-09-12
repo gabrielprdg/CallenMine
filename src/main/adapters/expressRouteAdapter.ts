@@ -11,13 +11,14 @@ import { HttpRequest } from '../../presentation/protocols/http'
 export const adapRoute = (controller: Controller): RequestHandler => {
   return async (request: Request, response: Response) => {
     const httpRequest: HttpRequest = {
+      query: request.query,
       method: request.method,
       body: request.body,
       params: request.params,
       schedulingId: request.schedulingId
     }
 
-    console.log(httpRequest.params)
+    console.log(httpRequest)
 
     const httpResponse = await controller.handle(httpRequest)
     console.log(httpResponse)

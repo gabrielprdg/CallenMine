@@ -4,7 +4,7 @@ import { ValidationComposite } from '../../../../../validation/validators/valida
 
 export const makeAddSchedulingValidation = (): ValidationComposite => {
   const validations: Validation[] = []
-  for (const field of ['customer', 'note', 'schedules']) {
+  for (const field of ['customer', 'note', 'schedulesData']) {
     validations.push(new RequiredFieldsValidation(field))
   }
   return new ValidationComposite(validations)

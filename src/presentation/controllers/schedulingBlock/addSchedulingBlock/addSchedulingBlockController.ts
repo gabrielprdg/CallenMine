@@ -21,9 +21,9 @@ export class AddSchedulingBlockController implements Controller {
       }
   
       const { start, end, note } = httpRequest.body
-      const schedulingId = await this.addSchedulingBlock.add({ start, end, note })
-
-      return ok(schedulingId)
+      const schedulingBlockId = await this.addSchedulingBlock.add({start : new Date(start), end: new Date(end), note })
+      
+      return ok(schedulingBlockId)
     } catch (err) {
       throw Error(err)
     }

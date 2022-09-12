@@ -1,6 +1,6 @@
 import { ObjectId } from 'mongodb'
 import { AddSchedulingRepository } from '../../../../data/protocols/db/scheduling/addSchedulingRepository'
-import { LoadSchedulingByExpertIdRepository } from '../../../../data/protocols/db/scheduling/loadSchedulingByExertIdRepository'
+import { LoadSchedulingByExpertIdRepository } from '../../../../data/protocols/db/scheduling/loadSchedulingByExpertIdRepository'
 import { LoadSchedulingByIdRepository } from '../../../../data/protocols/db/scheduling/loadSchedulingByIdRepository'
 import { LoadSchedulingsRepository } from '../../../../data/protocols/db/scheduling/loadSchedulingsRepository'
 import { SchedulingModel } from '../../../../domain/models/scheduling'
@@ -29,7 +29,7 @@ export class SchedulingMongoRepository implements AddSchedulingRepository, LoadS
 
   async loadByExpertId (expertId: string): Promise<SchedulingModel[]> {
     const schedulingCollection = await mongoHelper.getCollection('scheduling')
-    const schedulings = await schedulingCollection.find({ 'schedules.experts.id': expertId }).toArray()
+    const schedulings = await schedulingCollection.find({ 'schedules.experts_id': expertId }).toArray()
     return mongoHelper.mapCollection(schedulings)
   }
 }

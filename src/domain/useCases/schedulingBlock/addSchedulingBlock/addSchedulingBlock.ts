@@ -4,8 +4,8 @@ import { SchedulingBlockModel } from '../../../models/schedulingBlock'
 export type SchedulingBlockId = Pick<SchedulingBlockModel, 'id'>
 
 export type AddScheduleBlockParams = {
-  start: string
-  end: string
+  start: Date
+  end: Date
   note: string
 }
 

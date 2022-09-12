@@ -1,6 +1,6 @@
 import { SchedulingModel } from '../../../../domain/models/scheduling'
 import { LoadSchedulingByExpertId } from '../../../../domain/useCases/scheduling/loadSchedulingByExpertId/loadSchedulingByExpertId'
-import { LoadSchedulingByExpertIdRepository } from '../../../protocols/db/scheduling/loadSchedulingByExertIdRepository'
+import { LoadSchedulingByExpertIdRepository } from '../../../protocols/db/scheduling/loadSchedulingByExpertIdRepository'
 
 export class DbLoadSchedulingByExpertId implements LoadSchedulingByExpertId {
   private readonly loadSchedulingByExpertIdRepository: LoadSchedulingByExpertIdRepository
