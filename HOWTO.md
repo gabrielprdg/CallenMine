@@ -1,29 +1,13 @@
-## :rocket: Sobre o desafio
-
-A aplicação consiste em um backend em node que será usado, tanto web quanto mobile, estes, densenvolvidos com React e React Native.
-
-O Objetivo é possibilitar o agendamento de um serviço entre o prestador e o cliente.
-
-
 ## :pushpin: Um pouco sobre as ferramentas
 
 ### Back-End
 
 - Sucrase + Nodemon;
 - ESLint + Prettier + EditorConfig;
-- Sequelize (Utilizando PostgreSQL);
+- MongoDB
+- TS/JS
+- Clean Arch
 
-### **Em Desenvolvimento...**
-
-## :computer: Instalação e execução
-
-Acesse o Readme.md da pasta de cada projeto
-
-## :memo: Licença
-
-Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
-
----
 
 ## 🚀 Getting started
 
