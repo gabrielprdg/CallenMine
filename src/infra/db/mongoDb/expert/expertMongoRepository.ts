@@ -25,22 +25,19 @@ export class ExpertMongoRepository implements AddExpertRepository, LoadFreeExper
 
   async loadByDate(date: Date): Promise<ExpertModel[]> {
     const schedulesCollection = await mongoHelper.getCollection('schedules')
-    const expertCollection = await mongoHelper.getCollection('experts')
+    const expertCollection = await mongoHelper.getCollection('expert')
     
     const result = await schedulesCollection.find({date: date}).toArray()
-
-    console.log('res',result)
     
     let experts: ExpertModel[] = []
     for(const res of result[0].experts_id) {
-      console.log('2', res)
-      const expertsData = await expertCollection.find({ _id : new ObjectId(res) }).toArray()
-      const expertMap = await mongoHelper.mapCollection(expertsData)
-      console.log('expertMap',expertMap)
+      
+      const expertsData = await expertCollection.findOne({ _id: { $ne: new ObjectId(res) }})
+      
       experts.push({
-        id: expertMap[0].id,
-        name: expertMap[0].name,
-        expertises: expertMap[0].expertises
+        id: mongoHelper.map(expertsData?._id),
+        name: expertsData?.name,
+        expertises: expertsData?.expertises[0]
       })
     }
 
