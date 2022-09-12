@@ -30,11 +30,9 @@ export class ExpertMongoRepository implements AddExpertRepository, LoadFreeExper
     const result = await schedulesCollection.find({date: date}).toArray()
 
     const experts_id = result.map(res => {
-      console.log(res.experts_id)
       return new ObjectId(res.experts_id)
     })
 
-    console.log('4r3',experts_id)
 
     const experts = await expertCollection.find({ _id : {$in: experts_id[0] }}).toArray()
 
@@ -52,17 +50,15 @@ export class ExpertMongoRepository implements AddExpertRepository, LoadFreeExper
     const results = await schedulesCollection.find({experts_id: expertId}).toArray()
 
     for(const result of results) {
-      console.log('ew',result)
+      
       const t = await schedulingCollection.findOne({experts_id: (result._id)})
-      console.log(t)
+      
       res.push({
         date: result.date,
         type: 'scheduling',
         message: t?.note
       })
     }
-
-    console.log(res)
 
     return mongoHelper.mapCollection(res)
   }

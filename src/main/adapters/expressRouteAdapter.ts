@@ -18,11 +18,8 @@ export const adapRoute = (controller: Controller): RequestHandler => {
       schedulingId: request.schedulingId
     }
 
-    console.log(httpRequest)
-
+ 
     const httpResponse = await controller.handle(httpRequest)
-    console.log(httpResponse)
-    console.log(httpResponse.statusCode)
     
     if(httpResponse.statusCode >= 200 && httpResponse.statusCode <= 299) {
       return response.status(httpResponse.statusCode).json(httpResponse.body)

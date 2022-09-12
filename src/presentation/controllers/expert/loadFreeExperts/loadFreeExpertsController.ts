@@ -17,8 +17,7 @@ export default class LoadFreeExpertsController implements Controller {
   async handle (httpRequest: HttpRequest): Promise<HttpResponse> {
     try {
       const { date } = httpRequest.query
-      console.log(date)
-     
+   
       const { dayDefault, monthDefault, yearDefault } = dateHelper(date)
       
       const baseURL = apiHolidays('BR', dayDefault, monthDefault, yearDefault)
