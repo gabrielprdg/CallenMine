@@ -29,15 +29,21 @@ export class ExpertMongoRepository implements AddExpertRepository, LoadFreeExper
     
     const result = await schedulesCollection.find({date: date}).toArray()
 
-    const experts_id = result.map(res => {
-      return new ObjectId(res.experts_id)
-    })
+    console.log('res',result)
+    
+    let experts: ExpertModel[] = []
+    for(const res of result[0].experts_id) {
+      console.log('2', res)
+      const expertsData = await expertCollection.find({ _id : new ObjectId(res) }).toArray()
+      const expertMap = await mongoHelper.mapCollection(expertsData)
+      console.log('expertMap',expertMap)
+      experts.push({
+        id: expertMap[0].id,
+        name: expertMap[0].name,
+        expertises: expertMap[0].expertises
+      })
+    }
 
-
-    const experts = await expertCollection.find({ _id : {$in: experts_id[0] }}).toArray()
-
-
-    //const experts = await expertCollection.find({ _id: result.experts_id}).toArray()
     return mongoHelper.mapCollection(experts)
   }
 
@@ -50,13 +56,23 @@ export class ExpertMongoRepository implements AddExpertRepository, LoadFreeExper
     const results = await schedulesCollection.find({experts_id: expertId}).toArray()
 
     for(const result of results) {
-      
-      const t = await schedulingCollection.findOne({experts_id: (result._id)})
-      
+      const scheduling = await schedulingCollection.findOne({'schedules.date': result.date})
+
       res.push({
         date: result.date,
         type: 'scheduling',
-        message: t?.note
+        message: scheduling?.note
+      })
+    }
+
+    const schedulingBlockCollection = await mongoHelper.getCollection("schedulingBlock")
+    const schedulingBlocks = await schedulingBlockCollection.find().toArray()
+
+    for (const block of schedulingBlocks) {
+      res.push({
+        date: block.start,
+        type: 'blocking',
+        message: block.note
       })
     }
 

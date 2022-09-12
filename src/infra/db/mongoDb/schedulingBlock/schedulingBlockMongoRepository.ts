@@ -1,13 +1,13 @@
-import { AddSchedulingBlockRepository } from '../../../../data/protocols/db/schedulingBlock/addSchedulingRepository'
+import { AddSchedulingBlockParams, AddSchedulingBlockRepository } from '../../../../data/protocols/db/schedulingBlock/addSchedulingRepository'
 import { LoadSchedulingBlocksRepository } from '../../../../data/protocols/db/schedulingBlock/loadSchedulingBlocksRepository';
 import { SchedulingBlockModel } from '../../../../domain/models/schedulingBlock';
 import { AddScheduleBlockParams, SchedulingBlockId } from '../../../../domain/useCases/schedulingBlock/addSchedulingBlock/addSchedulingBlock';
 import { mongoHelper } from '../helper/mongoHelper';
 
 export class SchedulingBlockMongoRepository implements AddSchedulingBlockRepository, LoadSchedulingBlocksRepository {
-  async add (schedulingBlockData: AddScheduleBlockParams): Promise<SchedulingBlockId> {
+  async add (scheduleBlockData: AddSchedulingBlockParams): Promise<SchedulingBlockId> {
     const schedulingBlockCollection = await mongoHelper.getCollection('schedulingBlock')
-    const result = await schedulingBlockCollection.insertOne(schedulingBlockData)
+    const result = await schedulingBlockCollection.insertOne(scheduleBlockData)
     const schedulingBlockId = result.insertedId
     return mongoHelper.mapId(schedulingBlockId)
   }
